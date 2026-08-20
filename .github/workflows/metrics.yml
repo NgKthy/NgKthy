@@ -1,0 +1,23 @@
+name: Metrics
+on:
+  schedule: [{cron: "0 0 * * *"}] # Chạy vào nửa đêm mỗi ngày
+  workflow_dispatch:
+  push: {branches: ["master", "main"]}
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: tunguyenn99 # Thay bằng username của bạn
+          template: classic
+          base: ""
+          config_timezone: Asia/Ho_Chi_Minh
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
+          plugin_habits: yes
+          plugin_habits_from: 200
+          plugin_habits_days: 14
+          plugin_habits_facts: yes
+          plugin_habits_charts: no
