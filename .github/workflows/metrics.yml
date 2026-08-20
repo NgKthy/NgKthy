@@ -20,6 +20,17 @@ jobs:
           config_timezone: Asia/Ho_Chi_Minh
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
+          extras_css: |
+            :root {
+              --color-calendar-graph-day-L1-bg: #9ebef5 !important;
+              --color-calendar-graph-day-L2-bg: #62a6f4 !important;
+              --color-calendar-graph-day-L3-bg: #467ebf !important;
+              --color-calendar-graph-day-L4-bg: #234f85 !important;
+            }
+            path[fill="#9be9a8"] { fill: #9ebef5 !important; }
+            path[fill="#40c463"] { fill: #62a6f4 !important; }
+            path[fill="#30a14e"] { fill: #467ebf !important; }
+            path[fill="#216e39"] { fill: #234f85 !important; }
 
       - name: Top Languages
         uses: lowlighter/metrics@latest
