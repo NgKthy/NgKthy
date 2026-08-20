@@ -9,8 +9,10 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: lowlighter/metrics@latest
+      - name: Isometric Calendar
+        uses: lowlighter/metrics@latest
         with:
+          filename: github-metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
           user: NgKthy
           template: classic
@@ -18,3 +20,20 @@ jobs:
           config_timezone: Asia/Ho_Chi_Minh
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
+
+      - name: Top Languages
+        uses: lowlighter/metrics@latest
+        with:
+          filename: github-metrics-langs.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: NgKthy
+          template: classic
+          base: ""
+          config_timezone: Asia/Ho_Chi_Minh
+          plugin_languages: yes
+          plugin_languages_analysis_timeout: 15
+          plugin_languages_categories: markup, programming
+          plugin_languages_colors: github
+          plugin_languages_limit: 8
+          plugin_languages_sections: most-used
+          plugin_languages_threshold: 0%
